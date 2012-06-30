@@ -1,0 +1,55 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Ships/SpaceShipMotor.cs">
+    <Files>
+      <File FileName="Assets/Resources/Ships/SpaceShipMotor.cs" Line="110" Column="21" />
+      <File FileName="Assets/Resources/Ships Equipment/Scripts/TypicalWeapon.cs" Line="25" Column="3" />
+      <File FileName="Assets/Resources/Ships Equipment/Scripts/TypicalMiscEquipment.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Ships Equipment/Scripts/TypicalHull.cs" Line="18" Column="41" />
+      <File FileName="Assets/Resources/Ships Equipment/Scripts/EquipmentUnit.cs" Line="6" Column="14" />
+      <File FileName="Assets/Resources/Other/Temporary Changelog.txt" Line="17" Column="54" />
+      <File FileName="Assets/Resources/Ships/Prefabs/Player/PlayerController.cs" Line="53" Column="36" />
+      <File FileName="Assets/Scripts/GUIManager.cs" Line="65" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="Other" expanded="True" />
+                <Node name="Ships" expanded="True">
+                  <Node name="Prefabs" expanded="True">
+                    <Node name="Player" expanded="True" />
+                  </Node>
+                  <Node name="SpaceShipMotor.cs" selected="True" />
+                </Node>
+                <Node name="Ships Equipment" expanded="True">
+                  <Node name="Scripts" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="Game Objects Scripts" expanded="True">
+                  <Node name="Ships Scripts" expanded="True">
+                    <Node name="Equipment" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="HangarModeScripts" expanded="True" />
+                <Node name="LevelManagment Scripts" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True">
+          <Node name="Assembly-CSharp" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

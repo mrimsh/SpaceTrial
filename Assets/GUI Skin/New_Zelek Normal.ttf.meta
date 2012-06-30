@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f57d825e561f949de9a8605406a2e609
+TrueTypeFontImporter:
+  serializedVersion: 2
+  fontSize: 14
+  fontColor: {r: 1, g: 1, b: 1, a: 1}
+  forceTextureCase: -2
+  renderMode: 0
+  style: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames:
+  - New_Zelek
+  - Arial
+  customCharacters: 
