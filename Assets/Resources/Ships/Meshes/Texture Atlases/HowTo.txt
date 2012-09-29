@@ -1,6 +1,0 @@
-Every...
-
-... object must be rotated to 90 at X and have negative size at Y
-... material must be: 
-	Tiling.x = sprite.w/atlas.w;		Offset.x = sprite.x/atlas.w;
-	Tiling.y = 0 - sprite.h/atlas.h;	Offset.y = 1 - sprite.y/atlas.h

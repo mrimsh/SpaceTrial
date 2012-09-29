@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<LevelsCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Levels>
+    <LevelSaveData name="Test Level">
+      <icon>blade</icon>
+      <spaceObjectsInLevel>0</spaceObjectsInLevel>
+      <spaceObjectsAtScreen>3</spaceObjectsAtScreen>
+      <spaceObjectsGenerationFrequency>1</spaceObjectsGenerationFrequency>
+      <spaceObjects>
+        <string>Blade</string>
+      </spaceObjects>
+      <vc_ShipsNumToDestroy>40</vc_ShipsNumToDestroy>
+      <vc_DistanceToPass>0</vc_DistanceToPass>
+    </LevelSaveData>
+  </Levels>
+</LevelsCollection>

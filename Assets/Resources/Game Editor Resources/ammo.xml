@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AmmoCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Ammo>
+    <AmmoSaveData name="LaserShot">
+      <icon>rayshot</icon>
+      <sprite>rayshot</sprite>
+      <damage>1</damage>
+      <splashRadius>12</splashRadius>
+      <cooldownMultiplier>1</cooldownMultiplier>
+      <cooldownBonus>0</cooldownBonus>
+      <lifetime>1</lifetime>
+      <speed>300</speed>
+      <isHoming>false</isHoming>
+      <isSelfDestruct>true</isSelfDestruct>
+    </AmmoSaveData>
+  </Ammo>
+</AmmoCollection>
