@@ -52,14 +52,18 @@ public class BulletMotor : SpaceObject
 				transform.localPosition = new Vector3 (GameManager.Instance.rightBorder, transform.localPosition.y, transform.localPosition.z);
 			}
 		} else {
-			Selfdestruct ();
+			Selfdestruct (DamageSource.Unknown);
 		}
 	}
 	
-	void OnTriggerStay (Collider otherCollider)
+	public override void OnTriggerStay (Collider otherCollider)
 	{
 		// Send messages to all rigidbodies, that was collided
 		otherCollider.SendMessage ("BulletWasCollided", this, SendMessageOptions.DontRequireReceiver);
+	}
+	
+	public override void SOCollided (SpaceObject collidedObject)
+	{
 	}
 	
 	/// <summary>
@@ -67,11 +71,6 @@ public class BulletMotor : SpaceObject
 	/// </summary>
 	public void BulletCatched ()
 	{
-		Selfdestruct ();
-	}
-	
-	private void Selfdestruct ()
-	{
-		Destroy (gameObject);
+		Selfdestruct (DamageSource.Unknown);
 	}
 }

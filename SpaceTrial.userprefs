@@ -1,17 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameObjectsScripts/ShipsScripts/SpaceShipMotor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameObjectsScripts/BulletMotor.cs">
     <Files>
-      <File FileName="Assets/Scripts/LevelManagmentScripts/PlayerController.cs" Line="59" Column="4" />
-      <File FileName="Assets/Scripts/GameObjectsScripts/BulletMotor.cs" Line="4" Column="33" />
-      <File FileName="Assets/Scripts/GameObjectsScripts/SpaceObject.cs" Line="7" Column="2" />
-      <File FileName="Assets/Scripts/GameObjectsScripts/ShipsScripts/SpaceShipMotor.cs" Line="266" Column="3" />
-      <File FileName="Assets/Scripts/LevelManagmentScripts/GameManager.cs" Line="44" Column="4" />
-      <File FileName="Assets/Scripts/LevelManagmentScripts/SpaceObjectsFactory.cs" Line="45" Column="6" />
-      <File FileName="Assets/Scripts/LevelManagmentScripts/BGGenerator.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/GameObjectsScripts/DamageSource.cs" Line="4" Column="15" />
-      <File FileName="Assets/Scripts/LevelManagmentScripts/MidSceneData.cs" Line="10" Column="49" />
-      <File FileName="Assets/Scripts/MainMenu/MainMenu.cs" Line="22" Column="57" />
+      <File FileName="Assets/Scripts/LevelManagmentScripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameObjectsScripts/BulletMotor.cs" Line="66" Column="3" />
+      <File FileName="Assets/Scripts/GameObjectsScripts/SpaceObject.cs" Line="6" Column="13" />
+      <File FileName="Assets/Scripts/GameObjectsScripts/ShipsScripts/SpaceShipMotor.cs" Line="298" Column="59" />
+      <File FileName="Assets/Scripts/LevelManagmentScripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelManagmentScripts/SpaceObjectsFactory.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelManagmentScripts/BGGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameObjectsScripts/DamageSource.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelManagmentScripts/AIController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,9 +20,8 @@
               <Node name="Scripts" expanded="True">
                 <Node name="GameEditor" expanded="True" />
                 <Node name="GameObjectsScripts" expanded="True">
-                  <Node name="ShipsScripts" expanded="True">
-                    <Node name="SpaceShipMotor.cs" selected="True" />
-                  </Node>
+                  <Node name="ShipsScripts" expanded="True" />
+                  <Node name="BulletMotor.cs" selected="True" />
                 </Node>
                 <Node name="LevelManagmentScripts" expanded="True" />
                 <Node name="MainMenu" expanded="True" />

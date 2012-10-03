@@ -24,7 +24,7 @@ public class AIController : ShipController
 			lastDeadZonePosition = GameManager.Instance.playerShip.transform.localPosition.y - 150f;
 		}
 		if (transform.localPosition.y < lastDeadZonePosition) {
-			shipMotor.DestroyShip (DamageSource.Enviroment);
+			shipMotor.Selfdestruct (DamageSource.Enviroment);
 		}
 	}
 

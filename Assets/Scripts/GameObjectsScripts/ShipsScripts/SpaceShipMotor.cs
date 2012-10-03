@@ -94,7 +94,7 @@ public class SpaceShipMotor : SpaceObject
 		set {
 			if (value <= 0) {
 				_currentHP = 0;			
-				DestroyShip (lastDamageSource);
+				Selfdestruct (lastDamageSource);
 			} else if (value > maxHP) {
 				_currentHP = maxHP;
 			} else {
@@ -142,7 +142,7 @@ public class SpaceShipMotor : SpaceObject
 	private UISprite _sprite;
 	private ShipSaveData _shipOriginData;
 	private bool _isShipActive;
-	private float _currentSpeed,
+	public float _currentSpeed,
 	_currentHP, 
 	_currentEP, 
 	_currentSP,
@@ -250,36 +250,58 @@ public class SpaceShipMotor : SpaceObject
 		}
 	}
 	
-	public void BulletWasCollided (BulletMotor bullet)
+	void BulletWasCollided (BulletMotor bullet)
 	{
-		if (bullet.sourceShip == this) {
-			//return false;
-		} else if (bullet.sourceShip == GameManager.Instance.playerShip) {
+		SpaceShipMotor playerShip = GameManager.Instance.playerShip;
+		if (bullet.sourceShip == playerShip && this != playerShip) {
 			DamageShip (bullet.damage, DamageSource.Player);
-			//return true;
-		} else {
-			//return false;
+			bullet.BulletCatched ();
+		} else if (bullet.sourceShip != playerShip && this == playerShip) {
+			DamageShip (bullet.damage, DamageSource.Player);
+			bullet.BulletCatched ();
 		}
 	}
 
 	public void DamageShip (float damageAmount, DamageSource source)
 	{
-		lastTimeWasAttacked = Time.time;
-		lastDamageSource = source;
-		
-		if (CurrentSP > 0) {
-			if (damageAmount < CurrentSP) {
-				CurrentSP -= damageAmount;
-				damageAmount = 0;
-			} else {      
-				damageAmount -= CurrentSP;
-				CurrentSP = 0;
-			}
-		}
-		CurrentHP -= damageAmount;
+		DamageShip (damageAmount, source, false);
 	}
 	
-	public virtual void DestroyShip (DamageSource source)
+	public void DamageShip (float damageAmount, DamageSource source, bool ignoreShield)
+	{	
+		if (!ignoreShield) {
+			if (CurrentSP > 0) {
+				if (damageAmount < CurrentSP) {
+					CurrentSP -= damageAmount;
+					damageAmount = 0;
+				} else {      
+					damageAmount -= CurrentSP;
+					CurrentSP = 0;
+				}
+			}
+		}
+		
+		CurrentHP -= damageAmount;
+		lastTimeWasAttacked = Time.time;
+		lastDamageSource = source;
+	}
+
+	public override void OnTriggerStay (Collider otherCollider)
+	{
+		// Send messages to all rigidbodies, that was collided
+		otherCollider.SendMessage ("SOCollided", this, SendMessageOptions.DontRequireReceiver);
+	}
+	
+	public override void SOCollided (SpaceObject collidedObject)
+	{
+		if (this == GameManager.Instance.playerShip) {
+			DamageShip (maxHP * 0.1f, DamageSource.Enviroment, true);
+		} else {
+			Selfdestruct (DamageSource.Player);
+		}
+	}
+	
+	public override void Selfdestruct (DamageSource source)
 	{
 		SendMessage ("ShipDestroyed", source, SendMessageOptions.DontRequireReceiver);
 		Destroy (gameObject);
