@@ -5,12 +5,15 @@ public class SpaceObjectsFactory : MonoBehaviour
 {
 	public UIAtlas SpaceShipsAtlas;
 	public Transform parentPanel;
-	public float verticalSpawnOffset = 370f;
+	public float horizontalSpawnOffset = 0.1f;
+	public float verticalSpawnOffset = 0.05f;
 	[HideInInspector]
 	public int shipsInGame;
 	private int shipsWasProduced;
 	private float lastShipCreationTime;
 	LevelSaveData selectedLevel;
+	private float resultSpawnHeight;
+	private float halfSpawnWidth;
 	
 	void Awake ()
 	{
@@ -24,6 +27,8 @@ public class SpaceObjectsFactory : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		resultSpawnHeight = (GameManager.SCREENHEIGHT * verticalSpawnOffset) + GameManager.SCREENHEIGHT;
+		halfSpawnWidth = (GameManager.SCREENWIDTH - (GameManager.SCREENWIDTH * horizontalSpawnOffset)) * 0.5f;
 		selectedLevel = MidSceneData.Instance.selectedLevel;
 	}
 	
@@ -35,7 +40,7 @@ public class SpaceObjectsFactory : MonoBehaviour
 			(selectedLevel.spaceObjectsInLevel == 0 || shipsWasProduced < selectedLevel.spaceObjectsInLevel)) {
 				if (lastShipCreationTime + MidSceneData.Instance.selectedLevel.spaceObjectsGenerationFrequency < Time.time) {
 					SpaceShipMotor newShip = CreateShipTemplate (
-					new Vector3 (Random.Range (-150f, 150f), GameManager.Instance.playerShip.transform.localPosition.y + verticalSpawnOffset, -1f),
+					new Vector3 (Random.Range (-halfSpawnWidth, halfSpawnWidth), GameManager.Instance.playerShip.transform.localPosition.y + resultSpawnHeight, -1f),
 					new Quaternion (0, 0, 180, 0));
 					newShip.ActivateShip (MidSceneData.Instance.shipsInLevel.ships [Random.Range (0, MidSceneData.Instance.shipsInLevel.ships.Count)].name);
 					newShip.gameObject.AddComponent<AIController> ();

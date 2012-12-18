@@ -150,12 +150,6 @@ public class SpaceShipMotor : SpaceObject
 	private float lastTimeWasAttacked;
 	private DamageSource lastDamageSource;
 	
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
 	// Update is called once per frame
 	void Update ()
 	{
@@ -192,10 +186,10 @@ public class SpaceShipMotor : SpaceObject
 				}
 			}
 			// Is ship moved out of screen border
-			if (transform.localPosition.x > GameManager.Instance.rightBorder) {
-				transform.localPosition = new Vector3 (GameManager.Instance.leftBorder, transform.localPosition.y, transform.localPosition.z);
-			} else if (transform.localPosition.x < GameManager.Instance.leftBorder) {
-				transform.localPosition = new Vector3 (GameManager.Instance.rightBorder, transform.localPosition.y, transform.localPosition.z);
+			if (transform.localPosition.x > GameManager.SCREENWIDTH * 0.5f) {
+				transform.localPosition = new Vector3 (-GameManager.SCREENWIDTH * 0.5f, transform.localPosition.y, transform.localPosition.z);
+			} else if (transform.localPosition.x < -GameManager.SCREENWIDTH * 0.5f) {
+				transform.localPosition = new Vector3 (GameManager.SCREENWIDTH * 0.5f, transform.localPosition.y, transform.localPosition.z);
 			}
 		}
 	}
@@ -252,7 +246,7 @@ public class SpaceShipMotor : SpaceObject
 	
 	void BulletWasCollided (BulletMotor bullet)
 	{
-		SpaceShipMotor playerShip = GameManager.Instance.playerShip;
+		SpaceShipMotor playerShip = gm.playerShip;
 		if (bullet.sourceShip == playerShip && this != playerShip) {
 			DamageShip (bullet.damage, DamageSource.Player);
 			bullet.BulletCatched ();
@@ -294,9 +288,9 @@ public class SpaceShipMotor : SpaceObject
 	
 	public override void SOCollided (SpaceObject collidedObject)
 	{
-		if (this == GameManager.Instance.playerShip) {
+		if (this == gm.playerShip) {
 			DamageShip (maxHP * 0.1f, DamageSource.Enviroment, true);
-		} else {
+		} else if (collidedObject == gm.playerShip) {
 			Selfdestruct (DamageSource.Player);
 		}
 	}

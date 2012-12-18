@@ -13,14 +13,19 @@ public class BGGenerator : MonoBehaviour
 	public UIAtlas bgObjectsAtlas;
 	public GameObject parentPanel;
 	private GameObject currBGScreen, nextBGScreen;
+	private float halfScreenWidth;
+	private float halfScreenHeight;
 
 	// Use this for initialization
 	void Start ()
 	{
+		halfScreenWidth = GameManager.SCREENWIDTH * 0.5f;
+		halfScreenHeight = GameManager.SCREENHEIGHT * 0.5f;
+		Debug.Log (halfScreenWidth + "x" + halfScreenHeight);
 		currBGScreen = CreateBGScreen ();
 		nextBGScreen = CreateBGScreen ();
 		currBGScreen.transform.localPosition = new Vector3 (0, -100f, 1);
-		nextBGScreen.transform.localPosition = new Vector3 (0, 500f, 1);
+		nextBGScreen.transform.localPosition = new Vector3 (0, (halfScreenHeight * 2) - 100f, 1);
 	}
 
 	// Update is called once per frame
@@ -31,7 +36,7 @@ public class BGGenerator : MonoBehaviour
 				Destroy (currBGScreen, 1f);
 				currBGScreen = nextBGScreen;
 				nextBGScreen = CreateBGScreen ();
-				nextBGScreen.transform.localPosition = new Vector3 (0, currBGScreen.transform.localPosition.y + 600f, 0);
+				nextBGScreen.transform.localPosition = new Vector3 (0, currBGScreen.transform.localPosition.y + (halfScreenHeight * 2), 0);
 			}
 		}
 	}
@@ -52,7 +57,7 @@ public class BGGenerator : MonoBehaviour
 			newBGObject.atlas = bgObjectsAtlas;
 			newBGObject.spriteName = bgObjects [nextIndex].sprite;
 			newBGObject.transform.parent = newBGScreen.transform;
-			newBGObject.transform.localPosition = new Vector3 (Random.Range (-160, 160), Random.Range (0, 600), 0);
+			newBGObject.transform.localPosition = new Vector3 (Random.Range (-halfScreenWidth, halfScreenWidth), Random.Range (0, halfScreenHeight * 2), 0);
 			
 			switch (bgObjects [nextIndex].typeOfResizing) {
 			case BackgroundObjects.deltaSizeType.@add:

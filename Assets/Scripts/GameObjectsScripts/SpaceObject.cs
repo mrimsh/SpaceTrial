@@ -5,6 +5,13 @@ using System.Collections;
 
 public class SpaceObject : MonoBehaviour
 {
+	protected GameManager gm;
+	
+	protected virtual void Start ()
+	{
+		gm = GameManager.Instance;
+	}
+	
 	public virtual void OnTriggerStay (Collider otherCollider)
 	{
 		// Send messages to all rigidbodies, that was collided

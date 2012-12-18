@@ -33,9 +33,9 @@ public class BulletMotor : SpaceObject
 	private AmmoSaveData _ammoOriginData;
 	private UISprite _sprite;
 	
-	// Use this for initialization
-	void Start ()
+	protected override void Start ()
 	{
+		base.Start ();
 		birthTime = Time.time;
 	}
 	
@@ -46,10 +46,10 @@ public class BulletMotor : SpaceObject
 			// Move forward
 			transform.localPosition += transform.localRotation * new Vector3 (0, AmmoOriginData.speed * Time.deltaTime, 0);
 			// Is bullet moved out of screen border
-			if (transform.localPosition.x > GameManager.Instance.rightBorder) {
-				transform.localPosition = new Vector3 (GameManager.Instance.leftBorder, transform.localPosition.y, transform.localPosition.z);
-			} else if (transform.localPosition.x < GameManager.Instance.leftBorder) {
-				transform.localPosition = new Vector3 (GameManager.Instance.rightBorder, transform.localPosition.y, transform.localPosition.z);
+			if (transform.localPosition.x > GameManager.SCREENWIDTH * 0.5f) {
+				transform.localPosition = new Vector3 (-GameManager.SCREENWIDTH * 0.5f, transform.localPosition.y, transform.localPosition.z);
+			} else if (transform.localPosition.x < -GameManager.SCREENWIDTH * 0.5f) {
+				transform.localPosition = new Vector3 (GameManager.SCREENWIDTH * 0.5f, transform.localPosition.y, transform.localPosition.z);
 			}
 		} else {
 			Selfdestruct (DamageSource.Unknown);
